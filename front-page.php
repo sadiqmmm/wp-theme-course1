@@ -22,11 +22,16 @@ get_header();
       <div id="primary-section">
         <div id="primary-section-box1">
           <h1 class="brand-color"> Featured Article</h1>
-          <h1>HTML5 in Smashing Magazine!</h1>
+					<?php
+					  $post_73 = get_post(73);
+						$title = $post_73->post_title;
+						$content = $post_73->post_content;
+						$link = get_permalink(73);
+					?>
+
+          <h1><?php echo $title ?></h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero sequi expedita odio, soluta consequuntur
-            assumenda aut nulla accusantium facilis provident delectus? Pariatur, eius! Aliquam, reiciendis quisquam
-            earum <a class="" href="">HTML5</a> and <a href="">CSS3</a> website today!
+					  <?php echo $content ?>
           </p>
         </div>
         <div id="primary-section-box2">
@@ -187,8 +192,6 @@ get_header();
       <!-- End fourth-section //-->
 
 			</main><!-- #main -->
-
-
 
 		<?php
 		while ( have_posts() ) :
