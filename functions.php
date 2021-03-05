@@ -145,9 +145,13 @@ function msadiq_scripts() {
 	wp_enqueue_style( 'msadiq-style-c1', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION );
 	// wp_enqueue_style( 'msadiq-style-bootstrap5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', array(), _S_VERSION );
 
+	wp_enqueue_style( 'msadiq-style-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css', array(), _S_VERSION );
+
+
 	wp_style_add_data( 'msadiq-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'msadiq-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	// my custom javascript (true for footer and false for header)
 	wp_enqueue_script( 'msadiq-js', get_template_directory_uri() . '/assets/js/script.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
