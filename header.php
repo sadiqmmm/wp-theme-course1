@@ -21,30 +21,31 @@
 </head>
 
 <body <?php body_class(); ?>>
+<div id="wrapper">
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'msadiq' ); ?></a>
-
-
 	<header>
-            <h1 class="marginbottom">Smashing HTML5!</h1>
-            <p class="margintop">HTML5 in the year <del>2022</del> 2009</p>
-
-						<nav id="site-navigation" class="main-navigation">
-							<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'msadiq' ); ?></button>
-							<?php
-							wp_nav_menu(
-								array(
-									'theme_location' => 'menu-1',
-									'menu_id'        => 'primary-menu',
-								)
-							);
-							?>
-						</nav><!-- #site-navigation -->
-
-
-
-        </header>
+		<div id="branding">
+			<?php if (the_custom_logo()): ?>
+			<?php else : ?>
+			<h1>Smashing HTML5!</h1>
+			<p>
+				HTML5 in the year <del>2022</del> 2009
+			</p>
+			<?php endif; ?>
+		</div>
+		<nav>
+			<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					)
+				);
+				?>
+		</nav>
+    </header>
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
@@ -66,15 +67,5 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'msadiq' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+
 	</header><!-- #masthead -->
