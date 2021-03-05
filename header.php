@@ -27,7 +27,8 @@
 
 	<header>
 		<div id="branding">
-			<?php if (the_custom_logo()): ?>
+			<?php if (has_custom_logo()): ?>
+				<?php the_custom_logo() ?>
 			<?php else : ?>
 			<h1>Smashing HTML5!</h1>
 			<p>
