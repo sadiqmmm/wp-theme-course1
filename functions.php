@@ -136,9 +136,20 @@ function msadiq_widgets_init() {
 }
 add_action( 'widgets_init', 'msadiq_widgets_init' );
 
+// Add active class to menu
+add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+
+function special_nav_class ($classes, $item) {
+  if (in_array('current-menu-item', $classes) ){
+    $classes[] = 'active ';
+  }
+  return $classes;
+}
+
 /**
  * Enqueue scripts and styles.
  */
+
 function msadiq_scripts() {
 	wp_enqueue_style( 'msadiq-style', get_stylesheet_uri(), array(), _S_VERSION );
 	// My custom css
