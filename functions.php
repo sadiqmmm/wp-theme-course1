@@ -124,8 +124,19 @@ add_action( 'after_setup_theme', 'msadiq_content_width', 0 );
 function msadiq_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'msadiq' ),
+			'name'          => esc_html__( 'Widget 1', 'msadiq' ),
 			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.', 'msadiq' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Widget 2', 'msadiq' ),
+			'id'            => 'sidebar-2',
 			'description'   => esc_html__( 'Add widgets here.', 'msadiq' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
@@ -154,7 +165,7 @@ function msadiq_scripts() {
 	wp_enqueue_style( 'msadiq-style', get_stylesheet_uri(), array(), _S_VERSION );
 	// My custom css
 	wp_enqueue_style( 'msadiq-style-c1', get_template_directory_uri() . '/assets/css/style.css', array(), _S_VERSION );
-	// wp_enqueue_style( 'msadiq-style-bootstrap5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', array(), _S_VERSION );
+  // wp_enqueue_style( 'msadiq-style-bootstrap5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', array(), _S_VERSION );
 
 	wp_enqueue_style( 'msadiq-style-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css', array(), _S_VERSION );
 

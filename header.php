@@ -25,7 +25,6 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 
-	<header>
 		<div id="branding">
 			<?php if (has_custom_logo()): ?>
 				<?php the_custom_logo() ?>

@@ -11,11 +11,13 @@
  *
  * @package Msadiq
  *
- * Template Name: old My Front Page.
+ * Template Name: My Front Page.
  */
 
 get_header();
 ?>
+
+
 
 <main id="primary" class="site-main">
       <!--Start primary-section //-->
