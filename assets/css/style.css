@@ -61,7 +61,7 @@ nav ul li a:hover {
   color: #b94e4e;
 }
 
-#main a {
+main a {
   color: #b94e4e;
 }
 
@@ -105,7 +105,7 @@ footer a {
   width: 320px;
 }
 
-#main {
+main {
   margin: 0;
 }
 
