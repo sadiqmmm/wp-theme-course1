@@ -49,68 +49,38 @@ get_header();
       <!--End primary-section //-->
       <!-- Start seconday-section //-->
       <div id="seconday-section">
-        <div class="seconday-section-box">
+			<?php
+					$args = array(
+							'post_type' => 'post'
+					);
 
-          <div class="seconday-section-box-a">
-            <p>
-              10th October 2005<br />
-              By <a href="">Enrique Ramirez</a>
-            </p>
-          </div>
-          <div class="seconday-section-box-b">
-            <h2 class="brand-color">
-              This be the title
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti nisi molestiae modi commodi quas,
-              quisquam voluptatem quibusdam reiciendis voluptatum mollitia? Eum <a href="">asperiores iste</a> mollitia,
-              illo porro
-              odit quia iusto dolore.
-            </p>
-          </div>
-        </div>
+					$post_query = new WP_Query($args);
 
-        <div class="seconday-section-box">
+					if($post_query->have_posts() ) {
+							while($post_query->have_posts() ) {
+									$post_query->the_post();
+									?>
+									<div class="seconday-section-box">
 
-          <div class="seconday-section-box-a">
-            <p>
-              10th October 2005<br />
-              By <a href="">Enrique Ramirez</a>
-            </p>
-          </div>
-          <div class="seconday-section-box-b">
-            <h2 class="brand-color">
-              This be the title
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti nisi molestiae modi commodi quas,
-              quisquam voluptatem quibusdam reiciendis voluptatum mollitia? Eum <a href="">asperiores iste</a> mollitia,
-              illo porro
-              odit quia iusto dolore.
-            </p>
-          </div>
-        </div>
-
-        <div class="seconday-section-box">
-
-          <div class="seconday-section-box-a">
-            <p>
-              10th October 2005<br />
-              By <a href="">Enrique Ramirez</a>
-            </p>
-          </div>
-          <div class="seconday-section-box-b">
-            <h2 class="brand-color">
-              This be the title
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti nisi molestiae modi commodi quas,
-              quisquam voluptatem quibusdam reiciendis voluptatum mollitia? Eum <a href="">asperiores iste</a> mollitia,
-              illo porro
-              odit quia iusto dolore.
-            </p>
-          </div>
-        </div>
+										<div class="seconday-section-box-a">
+											<p>
+												<?php echo get_the_date(); ?><br />
+												By <a href=""><?php the_author(); ?></a>
+											</p>
+										</div>
+										<div class="seconday-section-box-b">
+											<h2 class="brand-color">
+												<?php the_title(); ?>
+											</h2>
+											<p>
+												<?php the_content(); ?>
+											</p>
+										</div>
+									</div>
+									<?php
+									}
+							}
+			?>
       </div>
       <!-- End seconday-section //-->
 
@@ -192,21 +162,6 @@ get_header();
       <!-- End fourth-section //-->
 
 			</main><!-- #main -->
-
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
 
 <?php
 get_sidebar();
